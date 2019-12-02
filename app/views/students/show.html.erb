@@ -2,28 +2,66 @@
 <div id="registerModal" style="display:none;"></div>
 <div id="vacationModal" style="display:none;"></div>
 
-<div class="alert alert-danger" id="modalFlashError-<%= controller_name %>" role="alert" style="display:none;"></div>
+<div
+	class="alert alert-danger"
+	id="modalFlashError-<%= controller_name %>"
+	role="alert"
+	style="display:none;"
+></div>
 <nav>
-  <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active" id="nav-student-detail-tab" data-toggle="tab" href="#nav-student-detail" role="tab" aria-controls="nav-student-detail" aria-selected="true">ข้อมูลนักเรียน</a>
-    <a class="nav-item nav-link" id="nav-vacation-tab" data-toggle="tab" href="#nav-vacation" role="tab" aria-controls="nav-vacation" aria-selected="false">ลา</a>
-    <a class="nav-item nav-link" id="nav-calendar-tab" data-toggle="tab" href="#nav-calendar" role="tab" aria-controls="nav-calendar" aria-selected="false" onclick="reloadCalendars()">ปฎิทิน</a>
-  </div>
+	<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+		<a
+			class="nav-item nav-link active"
+			id="nav-student-detail-tab"
+			data-toggle="tab"
+			href="#nav-student-detail"
+			role="tab"
+			aria-controls="nav-student-detail"
+			aria-selected="true"
+			>ข้อมูลนักเรียน</a
+		>
+		<a
+			class="nav-item nav-link"
+			id="nav-vacation-tab"
+			data-toggle="tab"
+			href="#nav-vacation"
+			role="tab"
+			aria-controls="nav-vacation"
+			aria-selected="false"
+			>ลา</a
+		>
+		<a
+			class="nav-item nav-link"
+			id="nav-calendar-tab"
+			data-toggle="tab"
+			href="#nav-calendar"
+			role="tab"
+			aria-controls="nav-calendar"
+			aria-selected="false"
+			onclick="reloadCalendars()"
+			>ปฎิทิน</a
+		>
+	</div>
 </nav>
 <div class="tab-content" id="nav-tabContent">
-  <div class="tab-pane fade show active" id="nav-student-detail" role="tabpanel" aria-labelledby="nav-student-detail-tab">
-    <div class="row" id="showStudent">
-      <%= render 'show_student' %>
-    </div>
-  </div>
-  <div class="tab-pane fade" id="nav-vacation" role="tabpanel" aria-labelledby="nav-vacation-tab">
-    <div class="row" id="showVacation">
-      <%= render 'show_vacation' %>
-    </div>
-  </div>
-  <div class="tab-pane fade" id="nav-calendar" role="tabpanel" aria-labelledby="nav-calendar-tab">
-    <div class="row" id="showCalendar">
-      <%= render 'show_calendar' %>
-    </div>
-  </div>
+	<div
+		class="tab-pane fade show active"
+		id="nav-student-detail"
+		role="tabpanel"
+		aria-labelledby="nav-student-detail-tab"
+	>
+		<div class="row" id="showStudent">
+			<%= render 'show_student' %>
+		</div>
+	</div>
+	<div class="tab-pane fade" id="nav-vacation" role="tabpanel" aria-labelledby="nav-vacation-tab">
+		<div class="row" id="showVacation">
+			<%= render 'show_vacation' %>
+		</div>
+	</div>
+	<div class="tab-pane fade" id="nav-calendar" role="tabpanel" aria-labelledby="nav-calendar-tab">
+		<div class="row" id="showCalendar">
+			<%= render 'show_calendar' %>
+		</div>
+	</div>
 </div>

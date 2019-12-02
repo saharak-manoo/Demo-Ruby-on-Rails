@@ -1,5 +1,8 @@
 <h3>
-  หน่วยกิตคงเหลือ
-  <strong class="<%= @student.decorate.sum_credits == 0 ? 'text-danger' : 'text-warning' %>"><%= @student.decorate.sum_credits %></strong> /
-  <strong class="text-success"><%= @student.credits_earned %></strong>
+	หน่วยกิตคงเหลือ
+	<strong class="<%= @student.decorate.sum_credits == 0 ? 'text-danger' : 'text-warning' %>"
+		><%= @student.decorate.sum_credits %></strong
+	>
+	/
+	<strong class="text-success"><%= @student.credits_earned %></strong>
 </h3>
