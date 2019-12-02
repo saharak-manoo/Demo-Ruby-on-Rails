@@ -1,27 +1,39 @@
 <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5>Register</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <%= simple_form_for @register_course, action: @register_course.new_record? ? 'create' : 'update', remote: true do |f| %>
-        <div class="modal-body">
-          <div class="alert alert-danger" id="modalFlashError-<%= controller_name %>" role="alert" style="display:none;"></div>
-          <div class="form-inputs">
-            <%= f.hidden_field :student_id, value: @student.id %>
-            <%= f.input :subject_id, collection: @subjects, prompt: 'เลือกวิชา', input_html: { class: 'form-control' } %>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <%= f.button :submit, 'OK', data: { disable_with: 'Loading' }, class: 'btn btn-outline-primary btn-black' %>
-          <button type="button" class="btn btn-outline-secondary btn-black" data-dismiss="modal" aria-label="Close">
-            <%= t('close') %>
-          </button>
-        </div>
-      <% end %>
-    </div>
-  </div>
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5>Register</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<%= simple_form_for @register_course, action: @register_course.new_record? ? 'create' :
+			'update', remote: true do |f| %>
+			<div class="modal-body">
+				<div
+					class="alert alert-danger"
+					id="modalFlashError-<%= controller_name %>"
+					role="alert"
+					style="display:none;"
+				></div>
+				<div class="form-inputs">
+					<%= f.hidden_field :student_id, value: @student.id %> <%= f.input :subject_id, collection:
+					@subjects, prompt: 'เลือกวิชา', input_html: { class: 'form-control' } %>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<%= f.button :submit, 'OK', data: { disable_with: 'Loading' }, class: 'btn
+				btn-outline-primary btn-black' %>
+				<button
+					type="button"
+					class="btn btn-outline-secondary btn-black"
+					data-dismiss="modal"
+					aria-label="Close"
+				>
+					<%= t('close') %>
+				</button>
+			</div>
+			<% end %>
+		</div>
+	</div>
 </div>

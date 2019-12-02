@@ -1,84 +1,116 @@
 <div class="col-lg-12">
-  <div class="content-wall" id="formShow">
-    <%= render 'form_show' %>
-  </div>
-  <div class="content-wall py-3">
-    <div class="row">
-      <div class="col-lg-6">
-        <h3>วิชาที่ลงทะเบียน</h3>
-      </div>
-      <div class="col-lg-6 text-right" id="sumCredits">
-        <%= render 'sum_credits' %>
-      </div>
-    </div>
-    <nav>
-      <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-register-tab" data-toggle="tab" href="#nav-register" role="tab" aria-controls="nav-register" aria-selected="true">วิชาที่ลงทะเบียน</a>
-        <a class="nav-item nav-link" id="nav-delete-register-tab" data-toggle="tab" href="#nav-delete-register" role="tab" aria-controls="nav-delete-register" aria-selected="false">วิชาที่ถอนออก</a>
-      </div>
-    </nav>
-    <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="nav-register" role="tabpanel" aria-labelledby="nav-register-tab">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="row">
-              <div class="col-lg-12">
-                <div class="row mx-0 justify-content-between" id="toobarHeadregisterCoursesTable">
-                  <div class="col-lg-12" id="newRegister">
-                    <%= render 'new_register' %>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <table id="registerCoursesTable"
-              data-toggle="table"
-              data-classes="table"
-              data-toolbar="#toobarHeadregisterCoursesTable"
-              data-pagination="true"
-              data-search="true"
-              data-search-align="right"
-              data-url="<%= register_courses_path(student_id: @student.id) %>"
-              data-side-pagination="server"
-              data-query-params="queryParams"
-              data-page-size="5">
-              <thead>
-                <tr>
-                  <th data-field="actions">#</th>
-                  <th data-sortable="true" data-field="subject_code">รหัสวิชา</th>
-                  <th data-sortable="true" data-field="subject_name">ชื่อวิชา</th>
-                  <th data-sortable="true" data-field="subject_credit">หน่วยกิต</th>
-                  <th data-sortable="true" data-field="register">วันที่ลงทะเบียน</th>
-                  <th class="text-right" data-field="action_buttons"></th>
-                </tr>
-              </thead>
-            </table>
-          </div>
-        </div>
-      </div>
-      <div class="tab-pane fade" id="nav-delete-register" role="tabpanel" aria-labelledby="nav-delete-register-tab">
-        <table id="deleteRegisterCoursesTable"
-          data-toggle="table"
-          data-classes="table"
-          data-pagination="true"
-          data-search="true"
-          data-search-align="right"
-          data-url="<%= delete_subject_register_course_path(student_id: @student.id) %>"
-          data-side-pagination="server"
-          data-query-params="queryParams"
-          data-page-size="5">
-          <thead>
-            <tr>
-              <th data-field="actions">#</th>
-              <th data-sortable="true" data-field="subject_code">รหัสวิชา</th>
-              <th data-sortable="true" data-field="subject_name">ชื่อวิชา</th>
-              <th data-sortable="true" data-field="subject_credit">หน่วยกิต</th>
-              <th data-sortable="true" data-field="register">วันที่ลงทะเบียน</th>
-              <th data-sortable="true" data-field="delete_register">วันที่ถอนออก</th>
-              <th class="text-right" data-field="action_buttons"></th>
-            </tr>
-          </thead>
-        </table>
-      </div>
-    </div>
-  </div>
+	<div class="content-wall" id="formShow">
+		<%= render 'form_show' %>
+	</div>
+	<div class="content-wall py-3">
+		<div class="row">
+			<div class="col-lg-6">
+				<h3>วิชาที่ลงทะเบียน</h3>
+			</div>
+			<div class="col-lg-6 text-right" id="sumCredits">
+				<%= render 'sum_credits' %>
+			</div>
+		</div>
+		<nav>
+			<div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+				<a
+					class="nav-item nav-link active"
+					id="nav-register-tab"
+					data-toggle="tab"
+					href="#nav-register"
+					role="tab"
+					aria-controls="nav-register"
+					aria-selected="true"
+					>วิชาที่ลงทะเบียน</a
+				>
+				<a
+					class="nav-item nav-link"
+					id="nav-delete-register-tab"
+					data-toggle="tab"
+					href="#nav-delete-register"
+					role="tab"
+					aria-controls="nav-delete-register"
+					aria-selected="false"
+					>วิชาที่ถอนออก</a
+				>
+			</div>
+		</nav>
+		<div class="tab-content" id="nav-tabContent">
+			<div
+				class="tab-pane fade show active"
+				id="nav-register"
+				role="tabpanel"
+				aria-labelledby="nav-register-tab"
+			>
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="row mx-0 justify-content-between" id="toobarHeadregisterCoursesTable">
+									<div class="col-lg-12" id="newRegister">
+										<%= render 'new_register' %>
+									</div>
+								</div>
+							</div>
+						</div>
+						<table
+							id="registerCoursesTable"
+							data-toggle="table"
+							data-classes="table"
+							data-toolbar="#toobarHeadregisterCoursesTable"
+							data-pagination="true"
+							data-search="true"
+							data-search-align="right"
+							data-url="<%= register_courses_path(student_id: @student.id) %>"
+							data-side-pagination="server"
+							data-query-params="queryParams"
+							data-page-size="5"
+						>
+							<thead>
+								<tr>
+									<th data-field="actions">#</th>
+									<th data-sortable="true" data-field="subject_code">รหัสวิชา</th>
+									<th data-sortable="true" data-field="subject_name">ชื่อวิชา</th>
+									<th data-sortable="true" data-field="subject_credit">หน่วยกิต</th>
+									<th data-sortable="true" data-field="register">วันที่ลงทะเบียน</th>
+									<th class="text-right" data-field="action_buttons"></th>
+								</tr>
+							</thead>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div
+				class="tab-pane fade"
+				id="nav-delete-register"
+				role="tabpanel"
+				aria-labelledby="nav-delete-register-tab"
+			>
+				<table
+					id="deleteRegisterCoursesTable"
+					data-toggle="table"
+					data-classes="table"
+					data-pagination="true"
+					data-search="true"
+					data-search-align="right"
+					data-url="<%= delete_subject_register_course_path(student_id: @student.id) %>"
+					data-side-pagination="server"
+					data-query-params="queryParams"
+					data-page-size="5"
+				>
+					<thead>
+						<tr>
+							<th data-field="actions">#</th>
+							<th data-sortable="true" data-field="subject_code">รหัสวิชา</th>
+							<th data-sortable="true" data-field="subject_name">ชื่อวิชา</th>
+							<th data-sortable="true" data-field="subject_credit">หน่วยกิต</th>
+							<th data-sortable="true" data-field="register">วันที่ลงทะเบียน</th>
+							<th data-sortable="true" data-field="delete_register">วันที่ถอนออก</th>
+							<th class="text-right" data-field="action_buttons"></th>
+						</tr>
+					</thead>
+				</table>
+			</div>
+		</div>
+	</div>
 </div>
