@@ -1,0 +1,112 @@
+<!-- Modal -->
+<div id="createOrUpdateStudentModal" style="display:none;"></div>
+<div id="createOrUpdateTeacherModal" style="display:none;"></div>
+
+<nav>
+  <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-student-tab" data-toggle="tab" href="#nav-student" role="tab" aria-controls="nav-student" aria-selected="true">นักเรียน</a>
+    <a class="nav-item nav-link" id="nav-all-register-tab" data-toggle="tab" href="#nav-all-register" role="tab" aria-controls="nav-all-register" aria-selected="false">วิชาที่ลงทะเบียนทั้งหมด</a>
+    <a class="nav-item nav-link" id="nav-teacher-tab" data-toggle="tab" href="#nav-teacher" role="tab" aria-controls="nav-teacher" aria-selected="false">คุณครู</a>
+  </div>
+</nav>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="content-wall">
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="nav-student" role="tabpanel" aria-labelledby="nav-student-tab">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="row mx-0 justify-content-between" id="toobarHeadTable">
+                  <div class="col-lg-12">
+                    <%= button_to new_student_path, method: :get, class: "btn btn-success btn-circle", remote: true do %>
+                      <i class="fas fa-plus fa-2x"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <table id="studentsTable"
+              data-toggle="table"
+              data-classes="table"
+              data-toolbar="#toobarHeadTable"
+              data-pagination="true"
+              data-search="true"
+              data-search-align="right"
+              data-url="<%= students_path %>"
+              data-side-pagination="server"
+              data-query-params="queryParams">
+              <thead>
+                <tr>
+                  <th data-sortable="true" data-field="student_code">รหัสนักเรียน</th>
+                  <th data-sortable="true" data-field="full_name">ชื่อ-นามสกุล</th>
+                  <th data-sortable="true" data-field="create_at">เข้าศึกษาวันที่</th>
+                  <th data-sortable="true" data-field="class_level">ระดับชั้นที่ศึกษา</th>
+                  <th data-sortable="true" data-field="status_color">สถานะ</th>
+                  <th class="text-right" data-field="action_buttons"></th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="tab-pane fade" id="nav-all-register" role="tabpanel" aria-labelledby="nav-all-register-tab">
+            <table id="allRegisterCoursesTable"
+              data-toggle="table"
+              data-classes="table"
+              data-pagination="true"
+              data-search="true"
+              data-search-align="right"
+              data-url="<%= all_register_courses_path %>"
+              data-side-pagination="server"
+              data-query-params="queryParams">
+              <thead>
+                <tr>
+                  <th data-field="actions">#</th>
+                  <th data-sortable="true" data-field="student_code">รหัสนักเรียน</th>
+                  <th data-sortable="true" data-field="student_name">ชื่อ-นามสกุล</th>
+                  <th data-sortable="true" data-field="subject_code">รหัสวิชา</th>
+                  <th data-sortable="true" data-field="subject_name">ชื่อวิชา</th>
+                  <th data-sortable="true" data-field="subject_credit">หน่วยกิต</th>
+                  <th data-sortable="true" data-field="register">วันที่ลงทะเบียน</th>
+                  <th data-sortable="true" data-field="delete_register">วันที่ถอนออก</th>
+                  <th class="text-right" data-field="action_buttons"></th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="tab-pane fade" id="nav-teacher" role="tabpanel" aria-labelledby="nav-teacher-tab">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="row mx-0 justify-content-between" id="toobarTeacherTable">
+                  <div class="col-lg-12">
+                    <%= button_to show_modal_teachers_path, method: :get, class: "btn btn-success btn-circle", remote: true do %>
+                      <i class="fas fa-plus fa-2x"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <table id="teachersTable"
+              data-toggle="table"
+              data-classes="table"
+              data-pagination="true"
+              data-toolbar="#toobarTeacherTable"
+              data-search="true"
+              data-search-align="right"
+              data-url="<%= teachers_path %>"
+              data-side-pagination="server"
+              data-query-params="queryParams">
+              <thead>
+                <tr>
+                  <th data-field="id">#</th>
+                  <th data-sortable="true" data-field="full_name">ชื่อ-นามสกุล</th>
+                  <th data-sortable="true" data-field="create_at">วันที่บรรจุ</th>
+                  <th class="text-right" data-field="action_buttons"></th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,5 @@
+<h3>
+  วันลาที่ใช้ไป
+  <strong class="<%= @student.decorate.total_vacations >= @student.total_vacation ? 'text-danger' : 'text-warning' %>"><%= @student.decorate.total_vacations %></strong> /
+  <strong class="text-success"><%= "#{@student.total_vacation}.0" %></strong>
+</h3>

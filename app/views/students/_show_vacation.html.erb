@@ -1,0 +1,48 @@
+<div class="col-lg-12">
+  <div class="content-wall">
+    <div class="row">
+      <div class="col-lg-6">
+        <h3>ตารางการลา</h3>
+      </div>
+      <div class="col-lg-6 text-right" id="totalVacation">
+        <%= render 'vacations/total_vacation' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="row mx-0 justify-content-between" id="toobarHeadVacationsTable">
+              <div class="col-lg-12" id="newVacation">
+                <%= button_to show_modal_vacation_path(student_id: @student.id), method: :get, class: "btn btn-success btn-circle", id: 'btnNewVacation', remote: true, disabled: @student.decorate.total_vacations >= @student.total_vacation do %>
+                  <i class="fas fa-plus fa-2x"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <table id="vacationsTable"
+          data-toggle="table"
+          data-classes="table"
+          data-toolbar="#toobarHeadVacationsTable"
+          data-pagination="true"
+          data-search="true"
+          data-search-align="right"
+          data-url="<%= vacations_path(student_id: @student.id) %>"
+          data-side-pagination="server"
+          data-query-params="queryParams">
+          <thead>
+            <tr>
+              <th data-sortable="true" data-field="leave_type_color">ประเภทการลา</th>
+              <th data-sortable="true" data-field="detail">เหตุผล</th>
+              <th data-sortable="true" data-field="start_date_formatted">เริ่มวันที่</th>
+              <th data-sortable="true" data-field="end_date_formatted">ถึงวันที่</th>
+              <th data-sortable="true" data-field="total_vacation">จำนวนวันลา</th>
+              <th class="text-right" data-field="action_buttons"></th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

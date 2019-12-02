@@ -1,0 +1,11 @@
+<% if @student.errors.present? %>
+  showModalFlashError('<%= @student.errors.full_messages.to_sentence %>', '<%= controller_name %>')
+<% else %>
+  <% if @update_student %>
+    $('#formShow').html('<%= j (render 'form_show') %>');
+    $('#newRegister').html('<%= j (render 'new_register') %>')
+  <% else %>
+    $('#studentsTable').bootstrapTable('refresh');
+    $('#createOrUpdate').modal('hide');
+  <% end %>
+<% end %>

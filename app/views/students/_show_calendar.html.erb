@@ -1,0 +1,11 @@
+<div class="col-lg-12">
+  <div class="content-wall">
+    <div id="calendars"></div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    loadDataCalendars('<%= calendar_vacations_path(student_id: @student.id) %>');
+  });
+</script>

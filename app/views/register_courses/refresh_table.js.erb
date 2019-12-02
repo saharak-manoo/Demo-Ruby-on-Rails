@@ -1,0 +1,7 @@
+if (<%= @register_course.errors.present? %>) {
+  showModalFlashError('<%= @register_course.errors.full_messages.to_sentence %>', '<%= controller_name %>')
+} else {
+  $('#allRegisterCoursesTable, #registerCoursesTable, #deleteRegisterCoursesTable').bootstrapTable('refresh');
+  $('#register').modal('hide');
+  $('#sumCredits').html('<%= j (render 'students/sum_credits') %>')
+}

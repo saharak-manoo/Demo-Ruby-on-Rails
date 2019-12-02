@@ -1,0 +1,11 @@
+<% if @vacation.errors.present? %>
+  showModalFlashError('<%= @vacation.errors.full_messages.to_sentence %>', '<%= controller_name %>')
+<% else %>
+  $('#vacationsTable').bootstrapTable('refresh');
+  $('#vacation').modal('hide');
+  <% @student = Student.find(@student.id) %>
+  $('#btnNewVacation').attr('disabled', <%= @student.decorate.total_vacations >= @student.total_vacation %>);
+  reloadCalendars();
+  $('#totalVacation').html('<%= j (render 'vacations/total_vacation') %>');
+<% end %>
+

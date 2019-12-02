@@ -1,0 +1,7 @@
+$('#vacationModal').html('<%= j (render 'form_modal') %>');
+$('#vacationModal').slideDown(350);
+$('#vacation').on('shown.bs.modal', function () {
+  $(ClientSideValidations.selectors.forms).validate();
+});
+
+$('#vacation').modal('show')

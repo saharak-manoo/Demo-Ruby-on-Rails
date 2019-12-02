@@ -1,0 +1,7 @@
+$('#createOrUpdateStudentModal').html('<%= j (render 'form_modal') %>');
+$('#createOrUpdateStudentModal').slideDown(350);
+$('#createOrUpdate').on('shown.bs.modal', function () {
+  $(ClientSideValidations.selectors.forms).validate();
+});
+
+$('#createOrUpdate').modal('show')

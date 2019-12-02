@@ -1,0 +1,7 @@
+{
+  "name": "Ruby",
+  "private": true,
+  "dependencies": {
+    "bootstrap-table": "^1.14.2"
+  }
+}
