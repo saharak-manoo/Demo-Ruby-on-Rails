@@ -95,4 +95,4 @@ gem 'letter_opener'
 
 gem 'cancancan'
 
-# gem 'rails_admin', '~> 1.3'
+gem 'rails_admin', '~> 2.0'
