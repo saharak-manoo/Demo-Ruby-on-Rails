@@ -41,6 +41,7 @@
 					<li class="nav-item <%= controller_name == 'classrooms' ? 'active' : '' %>">
 						<a class="nav-link" href="<%= classrooms_path %>">Classroom</a>
 					</li>
+
 					<% if user_signed_in? %>
 					<li class="nav-item">
 						<%= link_to destroy_user_session_path, method: :delete, data: { confirm:
