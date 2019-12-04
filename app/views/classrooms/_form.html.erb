@@ -5,3 +5,25 @@ true do |f| %>
   <%= f.input :active %> 
   <%= f.submit 'Save', disable_with: 'Submiting...', class: 'btn btn-info' %> 
 <% end %>
+
+<% unless @classroom.new_record? %>
+  <table
+    id="classroomSubjectsTable"
+    data-toggle="table"
+    data-classes="table"
+    data-pagination="true"
+    data-search="true"
+    data-search-align="right"
+    data-url="<%= subjects_classroom_path(@classroom) %>"
+    data-side-pagination="server"
+    data-query-params="queryParams"
+  >
+    <thead>
+      <tr>
+        <th data-field="id">#</th>
+        <th data-sortable="true" data-field="subject_code">รหัสวิชา</th>
+        <th data-sortable="true" data-field="name">ชื่อ</th>
+      </tr>
+    </thead>
+  </table>
+<% end %>
