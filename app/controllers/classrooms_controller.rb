@@ -13,12 +13,57 @@ class ClassroomsController < ApplicationController
 
   def new
     @classroom = Classroom.new
-  end  
+  end
+
+  def create
+    classroom = Classroom.new(classroom_params)
+
+    if classroom.save
+      redirect_to classrooms_path, success: 'Classroom was successfully created.'
+    else
+      redirect_to new_classroom_path(classroom), danger: classroom.errors.full_messages.to_sentence
+    end   
+  end
+
+  def edit
+    @classroom = Classroom.find_by(id: params[:id])
+  end
+
+  def update
+    classroom = Classroom.find_by(id: params[:id])
+
+    if classroom.update(classroom_params)
+      redirect_to classrooms_path, info: 'Classroom was successfully updated.'
+    else
+      redirect_to edit_classroom_path(classroom), danger: classroom.errors.full_messages.to_sentence
+    end   
+  end
+
+  def destroy
+    classroom = Classroom.find_by(id: params[:id])
+    classroom.destroy
+    render 'refresh_table'
+  end
+
+  private
 
   def bootstrap_table_data
     render json: {
-      rows: @classrooms,
+      rows: @classrooms.decorate.as_json(decorator_methods:
+        [
+          :link_to_name,
+          :status_color,
+          :action_buttons
+        ]),
       total:  @classrooms.count
     }
-  end  
+  end
+
+  def classroom_params
+    params.require(:classroom).permit(
+      :name,
+      :seat,
+      :active
+    )
+  end
 end  

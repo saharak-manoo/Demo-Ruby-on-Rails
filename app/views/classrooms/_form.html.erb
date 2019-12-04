@@ -1,0 +1,7 @@
+<%= simple_form_for @classroom, action: @classroom.new_record? ? 'create' : 'update', validates:
+true do |f| %> 
+  <%= f.input :name %> 
+  <%= f.input :seat %> 
+  <%= f.input :active %> 
+  <%= f.submit 'Save', disable_with: 'Submiting...', class: 'btn btn-info' %> 
+<% end %>
