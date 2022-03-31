@@ -179,7 +179,8 @@ GEM
     protokoll (2.0.1)
       rails (>= 4.0)
     public_suffix (3.0.3)
-    puma (3.12.1)
+    puma (4.3.12)
+      nio4r (~> 2.0)
     rack (2.0.7)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -313,7 +314,7 @@ DEPENDENCIES
   paranoia (~> 2.2)
   pg
   protokoll
-  puma (~> 3.7)
+  puma (~> 4.3)
   rails (~> 5.1.6, >= 5.1.6.1)
   sass-rails (~> 5.0)
   selenium-webdriver
