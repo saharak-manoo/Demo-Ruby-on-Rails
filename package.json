@@ -2,6 +2,6 @@
   "name": "Ruby",
   "private": true,
   "dependencies": {
-    "bootstrap-table": "^1.14.2"
+    "bootstrap-table": "^1.20.2"
   }
 }
